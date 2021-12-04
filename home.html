@@ -9,14 +9,15 @@
 </head>
 <body>
     <div class="container">
-        <h1 class="text-center mt-5">Covid 19 Live Data In Table</h1>
+        <h1 class="text-center mt-5">Covid 19 Live Data</h1>
         <br><br>
         <table class="table table-hover">
             <thead>
                 <tr>
-                    <th>Total Cases</th>
+                    <th>Total Confirmed</th>
                     <th>Total Deaths</th>
-                    <th>Total Recovered</th>
+                    <th>New Confirmed</th>
+                    <th>New Deaths</th>
                 </tr>
             </thead>
             <tbody>
@@ -37,13 +38,14 @@
         function init(){
             var url="https://api.covid19api.com/summary"
             $.get(url,function(data){
-                console.log(data.Global)
+                console.log(data)
 
                 data=`
                 
                 <td>${data.Global.TotalConfirmed}</td>
                 <td>${data.Global.TotalDeaths}</td>
                 <td>${data.Global.NewConfirmed}</td>
+                <td>${data.Global.NewDeaths}</td>
                 `
                 $("#data").html(data)
             })
